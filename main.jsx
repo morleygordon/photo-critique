@@ -20,3 +20,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <PhotoCritiqueApp />
   </React.StrictMode>
 );
+if ('serviceWorker' in navigator) {
+navigator.serviceWorker.register('/sw.js');
+}
