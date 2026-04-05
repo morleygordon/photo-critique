@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" fill="#0f1419"/>
+  <!-- Sun arc -->
+  <path d="M 100 320 Q 256 80 412 320" fill="none" stroke="#d4a843" stroke-width="12" opacity="0.6"/>
+  <!-- Horizon line -->
+  <line x1="80" y1="320" x2="432" y2="320" stroke="#d4a843" stroke-width="4" opacity="0.3"/>
+  <!-- Camera body -->
+  <rect x="186" y="260" width="140" height="95" rx="12" fill="none" stroke="#d4a843" stroke-width="10"/>
+  <!-- Lens -->
+  <circle cx="256" cy="307" r="30" fill="none" stroke="#d4a843" stroke-width="8"/>
+  <circle cx="256" cy="307" r="12" fill="#d4a843" opacity="0.4"/>
+  <!-- Flash hotshoe -->
+  <rect x="220" y="250" width="40" height="14" rx="3" fill="#d4a843" opacity="0.5"/>
+  <!-- Text -->
+  <text x="256" y="440" text-anchor="middle" font-family="Georgia, serif" font-size="42" fill="#d4a843" font-weight="bold">SHOOT</text>
+</svg>
