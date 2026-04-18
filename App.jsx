@@ -437,10 +437,14 @@ export default function PhotoCritiqueApp() {
     setAnalyzing(photo.id);
     setError("");
 
-    const existingAnalyses = Object.values(analyses).filter(a => a);
+    const photoProjectId = photoProjects[photo.id];
+    const existingAnalyses = Object.entries(analyses)
+      .filter(([id, a]) => a && photoProjectId && photoProjects[id] === photoProjectId)
+      .map(([id, a]) => a);
+    const projectName = projects.find(p => p.id === photoProjectId)?.name || "Untitled";
     const portfolioContext = existingAnalyses.length > 0
-      ? `\n\nPORTFOLIO CONTEXT: I have ${existingAnalyses.length} other photos. Titles: ${existingAnalyses.map(a => a.title).join(", ")}. Consider how this new image fits with or contrasts the existing body of work for book sequencing (position ${existingAnalyses.length + 1} in the sequence).`
-      : "\n\nThis is the first photo in the portfolio. Assign sequence_position: 1.";
+      ? `\n\nBOOK/PROJECT: "${projectName}". This project has ${existingAnalyses.length} other photos. Titles: ${existingAnalyses.map(a => a.title).join(", ")}. Consider how this new image fits with or contrasts the existing body of work for book sequencing (position ${existingAnalyses.length + 1} in the sequence).`
+      : `\n\nBOOK/PROJECT: "${projectName}". This is the first photo in this project. Assign sequence_position: 1.`;
 
     const prompt = `You are a world-class photography critic, Lightroom expert, and gallery curator. Analyze this photograph.
 
